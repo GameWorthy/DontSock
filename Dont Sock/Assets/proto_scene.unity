@@ -138,7 +138,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 13384006}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .100000001
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -190,7 +190,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 35841939974f64648beb72faf4a48d4e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: .931034565, a: 1}
 --- !u!1 &37552385
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 37552385}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .100000001
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -294,7 +294,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 35841939974f64648beb72faf4a48d4e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: .379310369, a: 1}
 --- !u!1 &45449312
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +346,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 45449312}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .100000001
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -398,7 +398,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 35841939974f64648beb72faf4a48d4e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .986206889, g: 1, b: 0, a: 1}
 --- !u!1 &419831924
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +485,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 419831924}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .100000001
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -554,7 +554,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 607425868}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .100000001
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -606,7 +606,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 35841939974f64648beb72faf4a48d4e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &749019765
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,7 +733,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1060273908}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .100000001
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -785,7 +785,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 35841939974f64648beb72faf4a48d4e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: .434482753, b: 0, a: 1}
 --- !u!1 &1067497825
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +907,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1069482693}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .100000001
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -959,7 +959,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 35841939974f64648beb72faf4a48d4e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .404411793, g: .404411793, b: .404411793, a: 1}
 --- !u!1 &1163104937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +1011,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1163104937}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .100000001
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1063,7 +1063,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 35841939974f64648beb72faf4a48d4e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .477941155, g: .221035674, b: .126513839, a: 1}
 --- !u!1 &1573670916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,7 +1103,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1573670916}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .100000001
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1155,7 +1155,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 35841939974f64648beb72faf4a48d4e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .199999809, g: 0, b: 1, a: 1}
 --- !u!4 &1573670921
 Transform:
   m_ObjectHideFlags: 0
@@ -1217,7 +1217,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
