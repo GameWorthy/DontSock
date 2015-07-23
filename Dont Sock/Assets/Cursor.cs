@@ -5,7 +5,7 @@ public class Cursor : MonoBehaviour {
 
 	private Sock connectedSock = null;
 	private DistanceJoint2D joint;
-
+	private Vector3 lastPosition;
 
 	void Start () {
 		joint = GetComponent<DistanceJoint2D> ();
@@ -20,16 +20,22 @@ public class Cursor : MonoBehaviour {
 			}
 			return;
 		}
+
+		//save last position
+		lastPosition = transform.position;
+
+		//read where cursor position would be
+		Vector3 cursorPosition = Input.mousePosition;
+		cursorPosition = Camera.main.ScreenToWorldPoint (cursorPosition);
 		
 		if (Input.GetMouseButtonUp (0) ||
 			Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) {
-			connectedSock.Off ();
+			joint.connectedBody = null;
+			connectedSock.Off ((cursorPosition - lastPosition) * 10f);//times force
 			connectedSock = null;
 		}
 
-
-		Vector3 cursorPosition = Input.mousePosition;
-		cursorPosition = Camera.main.ScreenToWorldPoint (cursorPosition);
+		//move cursor
 		transform.position = cursorPosition;
 	}
 
@@ -43,7 +49,7 @@ public class Cursor : MonoBehaviour {
 			Vector3 distance = mousePosition - connectedSock.transform.position;
 			joint.connectedBody = connectedSock.Body;
 			joint.connectedAnchor = distance;
-			joint.distance = 0.05f;
+			joint.distance = 0.01f;
 			connectedSock.On ();
 		}
 	}

@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Sock : MonoBehaviour {
 
+	static int orderInLayer = -1000;
+
+	private SpriteRenderer sprite;
 	private Rigidbody2D body;
 	public Rigidbody2D Body
 	{
@@ -11,13 +14,20 @@ public class Sock : MonoBehaviour {
 
 	void Start () {
 		this.body = GetComponent<Rigidbody2D> ();
+		this.sprite = GetComponent<SpriteRenderer> ();
+		sprite.sortingOrder = orderInLayer;
 	}
 
 	public void On() {
-		body.gravityScale = 1;
+		orderInLayer++;
+		sprite.sortingOrder = orderInLayer;
 	}
 
 	public void Off() {
-		body.gravityScale = 0;
+		Off (Vector3.zero);
+	}
+
+	public void Off(Vector3 _force) {
+		body.velocity = _force;
 	}
 }
