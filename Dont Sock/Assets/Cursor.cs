@@ -13,14 +13,14 @@ public class Cursor : MonoBehaviour {
 	
 	void Update () {
 
-		if (Input.GetMouseButtonDown (0) ||
-		    Input.touchCount > 0 ) {
-			TryFindSock();
-		}
-
-		if (!connectedSock)
+		if (!connectedSock) {
+			if (Input.GetMouseButtonDown (0) ||
+			    Input.touchCount > 0 ) {
+				TryFindSock();
+			}
 			return;
-
+		}
+		
 		if (Input.GetMouseButtonUp (0) ||
 			Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) {
 			connectedSock.Off ();
