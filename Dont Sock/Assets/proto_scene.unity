@@ -118,9 +118,9 @@ Transform:
   m_Children:
   - {fileID: 419831927}
   - {fileID: 1726939535}
+  - {fileID: 1728858493}
   - {fileID: 1004555345}
   - {fileID: 1530518848}
-  - {fileID: 1728858493}
   - {fileID: 977032496}
   - {fileID: 1586261227}
   - {fileID: 1010829620}
@@ -327,7 +327,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 437640, guid: f0ee139407631df4aaf8a3294e3538e1, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 133880, guid: f0ee139407631df4aaf8a3294e3538e1, type: 2}
       propertyPath: m_Name
@@ -524,7 +524,7 @@ DistanceJoint2D:
   m_ConnectedRigidBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: -.150000006, y: .239999995}
-  m_Distance: 1
+  m_Distance: .00999999978
   m_MaxDistanceOnly: 0
 --- !u!1001 &1530518847
 Prefab:
@@ -563,7 +563,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 437640, guid: f0ee139407631df4aaf8a3294e3538e1, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 133880, guid: f0ee139407631df4aaf8a3294e3538e1, type: 2}
       propertyPath: m_Name
@@ -749,7 +749,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 437640, guid: f0ee139407631df4aaf8a3294e3538e1, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 133880, guid: f0ee139407631df4aaf8a3294e3538e1, type: 2}
       propertyPath: m_Name

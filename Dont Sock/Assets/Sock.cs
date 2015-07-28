@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Sock : MonoBehaviour {
 
-	static int orderInLayer = -1000;
+	static float orderInLayer = -0.0f;
 
 	private SpriteRenderer sprite;
 	private Rigidbody2D body;
@@ -15,12 +15,11 @@ public class Sock : MonoBehaviour {
 	void Start () {
 		this.body = GetComponent<Rigidbody2D> ();
 		this.sprite = GetComponent<SpriteRenderer> ();
-		sprite.sortingOrder = orderInLayer;
+		LayerUp ();
 	}
 
 	public void On() {
-		orderInLayer++;
-		sprite.sortingOrder = orderInLayer;
+		LayerUp ();
 	}
 
 	public void Off() {
@@ -29,5 +28,13 @@ public class Sock : MonoBehaviour {
 
 	public void Off(Vector3 _force) {
 		body.velocity = _force;
+	}
+
+	public void LayerUp() {
+		orderInLayer -= 0.001f;
+		this.transform.localPosition = new Vector3 (
+			transform.localPosition.x,
+			transform.localPosition.y,
+			orderInLayer);
 	}
 }
