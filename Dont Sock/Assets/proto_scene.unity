@@ -466,7 +466,6 @@ GameObject:
   - 4: {fileID: 1067497828}
   - 50: {fileID: 1067497827}
   - 114: {fileID: 1067497826}
-  - 232: {fileID: 1067497829}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -513,19 +512,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!232 &1067497829
-DistanceJoint2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1067497825}
-  m_Enabled: 1
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -.150000006, y: .239999995}
-  m_Distance: .00999999978
-  m_MaxDistanceOnly: 0
 --- !u!1001 &1530518847
 Prefab:
   m_ObjectHideFlags: 0

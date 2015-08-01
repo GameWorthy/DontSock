@@ -15,6 +15,7 @@ public class Sock : MonoBehaviour {
 	void Start () {
 		this.body = GetComponent<Rigidbody2D> ();
 		this.sprite = GetComponent<SpriteRenderer> ();
+		this.transform.localRotation = Quaternion.Euler (0,0,Random.Range(0,90));
 		LayerUp ();
 	}
 
@@ -36,5 +37,9 @@ public class Sock : MonoBehaviour {
 			transform.localPosition.x,
 			transform.localPosition.y,
 			orderInLayer);
+	}
+
+	public void UpdatePosition(Vector3 _newPos) {
+		transform.position = new Vector3 (_newPos.x, _newPos.y, orderInLayer);
 	}
 }
