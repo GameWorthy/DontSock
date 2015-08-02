@@ -39,7 +39,7 @@ public class Sock : MonoBehaviour {
 		this.sprite = GetComponent<SpriteRenderer> ();
 		this.transform.localRotation = Quaternion.Euler (0,0,Random.Range(0,360));
 		id = sock_id;
-		this.sprite.color = colors [id];
+		this.sprite.sprite = SockDB.GetSockSprite (id);
 		LayerUp ();
 		sock_id++;
 	}
