@@ -42,6 +42,14 @@ public class Sock : MonoBehaviour {
 		this.sprite.sprite = SockDB.GetSockSprite (id);
 		LayerUp ();
 		sock_id++;
+
+		if (Random.value > 0.5f) {
+			this.transform.localScale = new Vector3(
+				-this.transform.localScale.x,
+				this.transform.localScale.y,
+				this.transform.localScale.z
+				);
+		}
 	}
 
 	public void On() {
