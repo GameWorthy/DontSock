@@ -26,11 +26,10 @@ public class SockDB : MonoBehaviour {
 	
 	public static int[] GetRandomUniqueSocks(int _nSocks) {
 		int[] socks = new int[_nSocks];
-
-		int start = Random.Range (0, TotalSocks - 1);
+		
 		int step = Random.Range (4, 11);
 		int loop = 1;
-		int id = 0;
+		int id = Random.Range (0, TotalSocks - 1);
 		for (int i = 0; i < _nSocks; i++) {
 			id += step;
 			if(id >= TotalSocks) {
