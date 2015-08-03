@@ -8,10 +8,10 @@ public class LevelDB {
 		//index 1: time_limit
 		//index 2: sock_amount
 
-		{1,		20f,	10},
-		{3,		19f,	15},
-		{6,		18f,	20},
-		{9,		17f,	25},
+		{1 ,	20f,	10},
+		{3 ,	19f,	15},
+		{6 ,	18f,	20},
+		{9 ,	17f,	25},
 		{12,	16f,	30},
 		{15,	15f,	35},
 		{18,	14f,	40},
@@ -33,7 +33,7 @@ public class LevelDB {
 
 	public static int GetLevelSockAmount(int _level) {
 		int index = GetIndexByLevel(_level);
-		return (int)levelsMetadata[index,2];	
+		return (int)levelsMetadata[index,2];
 	}
 
 	private static int cachedLevel = 0;
@@ -49,14 +49,22 @@ public class LevelDB {
 		cachedLevel = _level;
 
 		int i = 0;
-		int length = levelsMetadata.GetLength(0);
+		int length = levelsMetadata.GetLength(0) - 1;
 
 		while(i < length) {
-			i++;
-			if ((int)levelsMetadata[i,0] >= _level) {
+			int ii = i + 1;
+
+			if(ii > length) {
+				cachedIndex = ii;
+				return ii;
+			}
+
+			if (_level >= (int)levelsMetadata[i,0]  &&
+				_level <  (int)levelsMetadata[ii,0]) {
 				cachedIndex = i;
 				return i;
 			}
+			i++;
 		}
 		
 		return length;

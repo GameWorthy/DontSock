@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,6 +8,7 @@ public class Game : MonoBehaviour {
 	[SerializeField] private Sock sockPrefab = null;
 	[SerializeField] private Transform drawer = null;
 	[SerializeField] private SockReader sockReader = null;
+	[SerializeField] private Text text = null;
 
 	private List<Sock> socks = new List<Sock> ();
 
@@ -19,6 +21,12 @@ public class Game : MonoBehaviour {
 	void Start() {
 		PopulateSocks ();
 		sockReader.SetGame (this);
+	}
+
+	void Update() {
+		if (Input.GetKeyDown (KeyCode.G)) {
+			NextLevel();
+		}
 	}
 
 	void PopulateSocks() {
@@ -36,6 +44,7 @@ public class Game : MonoBehaviour {
 			socks.Add(s);
 		}
 
+		text.text = currentLevel + " " + uniqueSockIds.Length;
 		sockReader.SetTarget (uniqueSockIds[Random.Range(0,uniqueSockIds.Length - 1)]);
 	}
 
