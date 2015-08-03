@@ -25,7 +25,7 @@ public class Cursor : MonoBehaviour {
 
 		transform.position = cursorPosition;
 
-		this.connectedSock.UpdatePosition(cursorPosition);
+		this.connectedSock.UpdatePosition(cursorPosition + Vector3.up);
 		
 		if (Input.GetMouseButtonUp (0) ||
 			Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) {
