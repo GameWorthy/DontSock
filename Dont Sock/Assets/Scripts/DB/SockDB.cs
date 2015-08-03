@@ -6,8 +6,7 @@ public class SockDB : MonoBehaviour {
 
 	private static List<Sprite> socksSprites = new List<Sprite>();
 	private static int totalSocks = 0;
-	public static int TotalSocks
-	{
+	public static int TotalSocks {
 		get { return totalSocks; }
 		private set { totalSocks = value; }
 	}

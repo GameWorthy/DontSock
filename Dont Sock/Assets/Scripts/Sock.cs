@@ -7,18 +7,6 @@ public class Sock : MonoBehaviour {
 	static float orderInLayer = -0.0f;
 	static int sock_id = 0;
 
-	private static List<Color> colors = new List<Color> {
-		Color.white,
-		Color.blue,
-		Color.cyan,
-		Color.gray,
-		Color.green,
-		Color.magenta,
-		Color.red,
-		Color.yellow,
-		new Color(34,53,255)
-	};
-
 	private SpriteRenderer sprite;
 	private int id = 0;
 	public int ID
@@ -37,12 +25,8 @@ public class Sock : MonoBehaviour {
 	void Start () {
 		this.body = GetComponent<Rigidbody2D> ();
 		this.sprite = GetComponent<SpriteRenderer> ();
-		this.transform.localRotation = Quaternion.Euler (0,0,Random.Range(0,360));
-		id = sock_id;
-		this.sprite.sprite = SockDB.GetSockSprite (id);
-		LayerUp ();
-		sock_id++;
 
+		this.transform.localRotation = Quaternion.Euler (0,0,Random.Range(0,360));
 		if (Random.value > 0.5f) {
 			this.transform.localScale = new Vector3(
 				-this.transform.localScale.x,
@@ -50,6 +34,15 @@ public class Sock : MonoBehaviour {
 				this.transform.localScale.z
 				);
 		}
+
+		id = sock_id;
+		sock_id++;
+		SetID (id);
+		LayerUp ();
+	}
+
+	public void SetID(int _id) {
+		this.sprite.sprite = SockDB.GetSockSprite (_id);
 	}
 
 	public void On() {
