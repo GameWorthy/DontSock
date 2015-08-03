@@ -27,21 +27,6 @@ public class LevelDB {
 	};
 
 	public static float GetLevelTime(int _level) {
-
-
-/*
-		Debug.Log(GetIndexByLevel(0));
-		Debug.Log(GetIndexByLevel(1));
-		Debug.Log(GetIndexByLevel(2));
-		Debug.Log(GetIndexByLevel(3));
-		Debug.Log(GetIndexByLevel(4));
-		Debug.Log(GetIndexByLevel(5));
-		Debug.Log(GetIndexByLevel(6));
-		Debug.Log(GetIndexByLevel(7));
-		Debug.Log(GetIndexByLevel(8));
-		Debug.Log(GetIndexByLevel(9));
-		Debug.Log(GetIndexByLevel(10));
-*/
 		int index = GetIndexByLevel(_level);
 		return (float)levelsMetadata[index,1];
 	}
@@ -75,6 +60,7 @@ public class LevelDB {
 		}
 		
 		return length;
-
 	}
+
+
 }

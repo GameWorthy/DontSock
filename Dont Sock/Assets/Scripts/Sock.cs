@@ -5,9 +5,8 @@ using System.Collections.Generic;
 public class Sock : MonoBehaviour {
 
 	static float orderInLayer = -0.0f;
-	static int sock_id = 0;
 
-	private SpriteRenderer sprite;
+	private SpriteRenderer spriteRender;
 	private int id = 0;
 	public int ID
 	{
@@ -24,7 +23,7 @@ public class Sock : MonoBehaviour {
 
 	void Start () {
 		this.body = GetComponent<Rigidbody2D> ();
-		this.sprite = GetComponent<SpriteRenderer> ();
+		this.spriteRender = gameObject.GetComponent<SpriteRenderer> ();
 
 		this.transform.localRotation = Quaternion.Euler (0,0,Random.Range(0,360));
 		if (Random.value > 0.5f) {
@@ -34,15 +33,16 @@ public class Sock : MonoBehaviour {
 				this.transform.localScale.z
 				);
 		}
-
-		id = sock_id;
-		sock_id++;
-		SetID (id);
 		LayerUp ();
 	}
 
 	public void SetID(int _id) {
-		this.sprite.sprite = SockDB.GetSockSprite (_id);
+		if (this.spriteRender) {
+			this.spriteRender.sprite = SockDB.GetSockSprite (_id);
+		} else {
+			Debug.LogError("No Renderer Found",this);
+		}
+		ID = _id;
 	}
 
 	public void On() {

@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 94ad54146457a4645ad4f7006261a98c
-timeCreated: 1437539162
+timeCreated: 1438561904
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sockPrefab: {fileID: 11494224, guid: f0ee139407631df4aaf8a3294e3538e1, type: 2}
+  - drawer: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

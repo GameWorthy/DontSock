@@ -5,21 +5,28 @@ public class SockReader : MonoBehaviour {
 
 	[SerializeField] private SpriteRenderer sockToFind = null;
 	private int sockToFindID = 0;
-
-	void Start () {
-		sockToFindID = (int) Random.Range (0, SockDB.TotalSocks - 1);
-		sockToFind.sprite = SockDB.GetSockSprite(sockToFindID);
-	}
+	private Game game = null;
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Sock") {
 			Sock sock = other.GetComponent<Sock>();
 			if(sock.ID == sockToFindID) {
-				Debug.Log("Yes");
+				if(game) {
+					game.NextLevel();
+				}
 			}
 			else {
-				Destroy(sock.gameObject);
+				game.GameOver();
 			}
 		}
+	}
+
+	public void SetTarget(int _targetID) {
+		sockToFindID = _targetID;
+		sockToFind.sprite = SockDB.GetSockSprite(sockToFindID);
+	}
+
+	public void SetGame(Game _game) {
+		this.game = _game;
 	}
 }
