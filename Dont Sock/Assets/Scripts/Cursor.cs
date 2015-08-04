@@ -2,49 +2,42 @@
 using System.Collections;
 
 public class Cursor : MonoBehaviour {
-
+	
 	private Sock connectedSock = null;
 	private Vector3 lastPosition;
 	private Vector3 currentPosition;
-
-	void Start () {
-
+	
+	public void Move(Vector3 _to) {
+		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (_to);
+		transform.position = cursorPosition;
+		
+		if (connectedSock) {
+			this.connectedSock.UpdatePosition(cursorPosition + Vector3.up);
+		}
+		
 	}
 	
-	void Update () {
-
+	public void Up() {
 		if (!connectedSock) {
-			if (Input.GetMouseButtonDown (0) ||
-			    Input.touchCount > 0 ) {
-				TryFindSock();
-			}
 			return;
 		}
-
-		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-
-		transform.position = cursorPosition;
-
-		this.connectedSock.UpdatePosition(cursorPosition + Vector3.up);
 		
-		if (Input.GetMouseButtonUp (0) ||
-			Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) {
-			connectedSock.Off ((cursorPosition - lastPosition) * 10f);//times force
-			connectedSock = null;
-		}
-
+		connectedSock.Off ((currentPosition - lastPosition) * 10f);//times force
+		connectedSock = null;
 	}
-
+	
+	public void Down() {
+		TryFindSock(transform.position);
+	}
+	
 	void FixedUpdate() {
 		lastPosition = currentPosition;
 		currentPosition = transform.position;		
 	}
-
-	void TryFindSock() {
-
-		Vector3 mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
-
+	
+	public void TryFindSock(Vector3 _from) {
+		
+		RaycastHit2D hit = Physics2D.Raycast(_from, Vector2.zero);
 		if(hit.collider != null) {
 			connectedSock = hit.collider.gameObject.GetComponent<Sock>();
 			connectedSock.On ();
