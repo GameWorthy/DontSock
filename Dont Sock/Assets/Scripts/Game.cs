@@ -19,6 +19,8 @@ public class Game : MonoBehaviour {
 	}
 
 	void Start() {
+		Screen.orientation = ScreenOrientation.Portrait;
+
 		PopulateSocks ();
 		sockReader.SetGame (this);
 	}
