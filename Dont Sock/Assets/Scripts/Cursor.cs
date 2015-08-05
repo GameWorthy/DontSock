@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class Cursor : MonoBehaviour {
 
@@ -36,6 +37,13 @@ public class Cursor : MonoBehaviour {
 
 		if (connectedSock) {
 			sr.sprite = SockDB.GetSockSprite(connectedSock.ID);
+			sr.transform.position = connectedSock.transform.position;
+			sr.transform.rotation = connectedSock.transform.rotation;
+			sr.transform.localScale = Vector3.one;
+			float tweenTime = 0.20f;
+			sr.transform.DOLocalMove(new Vector3(0,1,1),tweenTime);
+			sr.transform.DORotate(Vector3.zero,tweenTime);
+			sr.transform.DOScale(Vector3.one * 1.5f, tweenTime);
 		}
 	}
 	

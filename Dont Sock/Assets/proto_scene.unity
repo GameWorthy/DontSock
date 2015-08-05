@@ -134,7 +134,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 491410, guid: afec9d806ae64e64b8e4a368d5c81f42, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 165994, guid: afec9d806ae64e64b8e4a368d5c81f42, type: 2}
       propertyPath: m_Name
@@ -395,7 +395,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 491410, guid: afec9d806ae64e64b8e4a368d5c81f42, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 165994, guid: afec9d806ae64e64b8e4a368d5c81f42, type: 2}
       propertyPath: m_Name
@@ -723,7 +723,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 491410, guid: afec9d806ae64e64b8e4a368d5c81f42, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 165994, guid: afec9d806ae64e64b8e4a368d5c81f42, type: 2}
       propertyPath: m_Name
@@ -785,10 +785,6 @@ Prefab:
       propertyPath: m_Name
       value: Cursor (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 21221242, guid: afec9d806ae64e64b8e4a368d5c81f42, type: 2}
-      propertyPath: m_Color.a
-      value: .294117659
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: afec9d806ae64e64b8e4a368d5c81f42, type: 2}
   m_IsPrefabParent: 0
@@ -824,9 +820,9 @@ Transform:
   - {fileID: 621280285}
   - {fileID: 164727886}
   - {fileID: 743258983}
+  - {fileID: 1808070240}
   - {fileID: 1067084366}
   - {fileID: 1994997379}
-  - {fileID: 1808070240}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!1001 &1580559544
