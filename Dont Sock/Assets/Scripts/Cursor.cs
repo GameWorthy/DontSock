@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class Cursor : MonoBehaviour {
-	
+
+	[SerializeField] private SpriteRenderer sr = null;
+
 	private Sock connectedSock = null;
 	private Vector3 lastPosition;
 	private Vector3 currentPosition;
@@ -12,7 +14,9 @@ public class Cursor : MonoBehaviour {
 		transform.position = cursorPosition;
 		
 		if (connectedSock) {
-			this.connectedSock.UpdatePosition(cursorPosition + Vector3.up);
+			this.connectedSock.UpdatePosition (cursorPosition);// + Vector3.up);
+		} else {
+			sr.sprite = null;
 		}
 		
 	}
@@ -24,10 +28,15 @@ public class Cursor : MonoBehaviour {
 		
 		connectedSock.Off ((currentPosition - lastPosition) * 10f);//times force
 		connectedSock = null;
+
 	}
 	
 	public void Down() {
 		TryFindSock(transform.position);
+
+		if (connectedSock) {
+			sr.sprite = SockDB.GetSockSprite(connectedSock.ID);
+		}
 	}
 	
 	void FixedUpdate() {

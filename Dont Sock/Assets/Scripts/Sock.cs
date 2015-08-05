@@ -53,6 +53,7 @@ public class Sock : MonoBehaviour {
 	}
 
 	public void On() {
+		/*
 		this.transform.localScale = new Vector3 (
 			Mathf.Abs(this.transform.localScale.x * 1.25f),
 			this.transform.localScale.y * 1.25f,
@@ -60,6 +61,7 @@ public class Sock : MonoBehaviour {
 		);
 		this.transform.localRotation = Quaternion.identity;
 		this.spriteRender.color = new Color (255,255,255,0.65f);
+		*/
 		LayerUp ();
 	}
 
@@ -68,10 +70,12 @@ public class Sock : MonoBehaviour {
 	}
 
 	public void Off(Vector3 _force) {
+		/*
 		this.transform.localScale = initialScale;
 		this.transform.localRotation = initialRotation;
 		this.transform.localPosition -= Vector3.up;
 		this.spriteRender.color = Color.white;
+		*/
 		body.velocity = _force;
 	}
 
