@@ -8,27 +8,27 @@ public class LevelDB {
 		//index 1: time_limit
 		//index 2: sock_amount
 
-		{1 ,	20f,	10},
-		{3 ,	19f,	15},
-		{6 ,	18f,	20},
-		{9 ,	17f,	25},
-		{12,	16f,	30},
-		{15,	15f,	35},
-		{18,	14f,	40},
-		{21,	13f,	45},
-		{24,	12f,	50},
-		{27,	11f,	55},
-		{30,	10f,	60},
-		{33,	09f,	65},
-		{36,	08f,	70},
-		{39,	07f,	75},
-		{42,	06f,	80},
-		{45,	05f,	85}
+		{1 ,	20,	10},
+		{3 ,	19,	15},
+		{6 ,	18,	20},
+		{9 ,	17,	25},
+		{12,	16,	30},
+		{15,	15,	35},
+		{18,	14,	40},
+		{21,	13,	45},
+		{24,	12,	50},
+		{27,	11,	55},
+		{30,	10,	60},
+		{33,	09,	65},
+		{36,	08,	70},
+		{39,	07,	75},
+		{42,	06,	80},
+		{45,	05,	85}
 	};
 
-	public static float GetLevelTime(int _level) {
+	public static int GetLevelTime(int _level) {
 		int index = GetIndexByLevel(_level);
-		return (float)levelsMetadata[index,1];
+		return (int)levelsMetadata[index,1];
 	}
 
 	public static int GetLevelSockAmount(int _level) {

@@ -6,13 +6,14 @@ using System.Collections.Generic;
 public class Game : MonoBehaviour { 
 
 	[SerializeField] private Sock sockPrefab = null;
+	[SerializeField] private Timer timer = null;
 	[SerializeField] private Transform drawer = null;
 	[SerializeField] private SockReader sockReader = null;
 	[SerializeField] private Text text = null;
 
 	private List<Sock> socks = new List<Sock> ();
 
-	private int currentLevel = 1;
+	private int currentLevel = 0;
 	public int CurrentLevel {
 		get { return currentLevel; }
 		private set { currentLevel = value; }
@@ -20,9 +21,9 @@ public class Game : MonoBehaviour {
 
 	void Start() {
 		Screen.orientation = ScreenOrientation.Portrait;
-
-		PopulateSocks ();
+		
 		sockReader.SetGame (this);
+		NextLevel ();
 	}
 
 	void Update() {
@@ -31,10 +32,9 @@ public class Game : MonoBehaviour {
 		}
 	}
 
-	void PopulateSocks() {
-		int nSocks = LevelDB.GetLevelSockAmount (CurrentLevel);
-		int[] uniqueSockIds = SockDB.GetRandomUniqueSocks (nSocks);
-		for (int i = 0; i < nSocks; i++) {
+	void PopulateSocks(int _totalSocks) {
+		int[] uniqueSockIds = SockDB.GetRandomUniqueSocks (_totalSocks);
+		for (int i = 0; i < _totalSocks; i++) {
 			Sock s = (Instantiate(sockPrefab.gameObject) as GameObject).GetComponent<Sock>();
 			s.transform.parent = drawer;
 			s.transform.localPosition = new Vector3(
@@ -58,7 +58,8 @@ public class Game : MonoBehaviour {
 	public void NextLevel() {
 		CurrentLevel++;
 		ClearSocks ();
-		PopulateSocks ();
+		PopulateSocks (LevelDB.GetLevelSockAmount (CurrentLevel));
+		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), null);
 	}
 
 	public void GameOver() {
