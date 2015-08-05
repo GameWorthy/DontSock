@@ -14,7 +14,7 @@ public class Cursor : MonoBehaviour {
 		transform.position = cursorPosition;
 		
 		if (connectedSock) {
-			this.connectedSock.UpdatePosition (cursorPosition);// + Vector3.up);
+			this.connectedSock.UpdatePosition (cursorPosition);
 		} else {
 			sr.sprite = null;
 		}

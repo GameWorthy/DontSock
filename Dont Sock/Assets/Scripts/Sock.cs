@@ -6,9 +6,7 @@ public class Sock : MonoBehaviour {
 
 	static float orderInLayer = -0.0f;
 
-	private SpriteRenderer spriteRender;
-	private Quaternion initialRotation;
-	private Vector3 initialScale;
+	private SpriteRenderer spriteRender = null;
 
 	private int id = 0;
 	public int ID
@@ -37,9 +35,6 @@ public class Sock : MonoBehaviour {
 				);
 		}
 
-		initialScale = transform.localScale;
-		initialRotation = transform.localRotation;
-
 		LayerUp ();
 	}
 
@@ -53,15 +48,6 @@ public class Sock : MonoBehaviour {
 	}
 
 	public void On() {
-		/*
-		this.transform.localScale = new Vector3 (
-			Mathf.Abs(this.transform.localScale.x * 1.25f),
-			this.transform.localScale.y * 1.25f,
-			1
-		);
-		this.transform.localRotation = Quaternion.identity;
-		this.spriteRender.color = new Color (255,255,255,0.65f);
-		*/
 		LayerUp ();
 	}
 
@@ -70,12 +56,6 @@ public class Sock : MonoBehaviour {
 	}
 
 	public void Off(Vector3 _force) {
-		/*
-		this.transform.localScale = initialScale;
-		this.transform.localRotation = initialRotation;
-		this.transform.localPosition -= Vector3.up;
-		this.spriteRender.color = Color.white;
-		*/
 		body.velocity = _force;
 	}
 
