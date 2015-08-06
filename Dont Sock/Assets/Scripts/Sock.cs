@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Sock : MonoBehaviour {
 
-	static float orderInLayer = -0.0f;
+	static float orderInLayer = 0.0f;
 
 	private SpriteRenderer spriteRender = null;
 
@@ -15,6 +15,9 @@ public class Sock : MonoBehaviour {
 		private set { id = value; }
 	}
 
+	public void RestartLayerOrder() {
+		orderInLayer = 0.0f;
+	}
 
 	private Rigidbody2D body;
 	public Rigidbody2D Body

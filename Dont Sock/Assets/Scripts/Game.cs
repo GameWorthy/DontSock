@@ -36,6 +36,11 @@ public class Game : MonoBehaviour {
 		int[] uniqueSockIds = SockDB.GetRandomUniqueSocks (_totalSocks);
 		for (int i = 0; i < _totalSocks; i++) {
 			Sock s = (Instantiate(sockPrefab.gameObject) as GameObject).GetComponent<Sock>();
+
+			if(i == 0) {
+				s.RestartLayerOrder();
+			}
+
 			s.transform.parent = drawer;
 			s.transform.localPosition = new Vector3(
 					Random.Range(-1.9f,1.9f),
