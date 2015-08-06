@@ -38,8 +38,8 @@ public class Game : MonoBehaviour {
 			Sock s = (Instantiate(sockPrefab.gameObject) as GameObject).GetComponent<Sock>();
 			s.transform.parent = drawer;
 			s.transform.localPosition = new Vector3(
-					Random.Range(-2.5f,2.5f),
-					Random.Range(-2.5f,2.5f),
+					Random.Range(-1.9f,1.9f),
+					Random.Range(-2.3f,2.3f),
 					s.transform.localPosition.z
 				);
 			StartCoroutine(DelayedSockIdSet(s,uniqueSockIds[i]));

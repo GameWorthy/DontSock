@@ -25,6 +25,13 @@ public class Timer : MonoBehaviour {
 
 		while (seconds > 0) {
 			yield return new WaitForSeconds (1f);
+
+			if(seconds > 5) {
+				timeText.color = new Color(0,255,0);
+			} else {
+				timeText.color = new Color(255,0,0);
+			}
+
 			seconds--;
 			SetTimerText(seconds);
 		}
