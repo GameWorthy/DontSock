@@ -241,7 +241,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -262746367
   m_SortingOrder: 0
 --- !u!1001 &177951139
 Prefab:
@@ -498,7 +498,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 749019765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.03999996, z: .5}
+  m_LocalPosition: {x: 0, y: 4.30000019, z: .5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 840078330}
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sockPrefab: {fileID: 11494224, guid: f0ee139407631df4aaf8a3294e3538e1, type: 2}
   timer: {fileID: 1074912414}
-  drawer: {fileID: 749019766}
+  drawer: {fileID: 2046404997}
   sockReader: {fileID: 1964710314}
   text: {fileID: 416595257}
 --- !u!4 &952751332
@@ -976,7 +976,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -262746367
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300010, guid: b2b93092b715415489a8bf17a359144e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1026,6 +1026,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: afec9d806ae64e64b8e4a368d5c81f42, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1233576212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1233576213}
+  m_Layer: 0
+  m_Name: SecondSock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1233576213
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1233576212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .299999952, y: -.0999999046, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2006276560}
+  m_RootOrder: 0
 --- !u!4 &1283598392 stripped
 Transform:
   m_PrefabParentObject: {fileID: 491410, guid: afec9d806ae64e64b8e4a368d5c81f42, type: 2}
@@ -1206,7 +1233,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -262746367
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300012, guid: b2b93092b715415489a8bf17a359144e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1593,6 +1620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sockToFind: {fileID: 2006276559}
+  secondSock: {fileID: 1233576213}
 --- !u!4 &1994997379 stripped
 Transform:
   m_PrefabParentObject: {fileID: 491410, guid: afec9d806ae64e64b8e4a368d5c81f42, type: 2}
@@ -1641,8 +1669,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1869317039
-  m_SortingOrder: 0
+  m_SortingLayerID: -262746367
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300174, guid: e8cfe01ddda93414bbcb920d31e9c4dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &2006276560
@@ -1654,7 +1682,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1233576213}
   m_Father: {fileID: 1964710312}
   m_RootOrder: 1
 --- !u!1 &2046404995
@@ -1665,6 +1694,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2046404996}
+  - 114: {fileID: 2046404997}
   m_Layer: 0
   m_Name: SideTable
   m_TagString: Untagged
@@ -1686,3 +1716,15 @@ Transform:
   - {fileID: 749019766}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &2046404997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046404995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88a28da66e1206439f23ecf62f2b1c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawer: {fileID: 749019766}

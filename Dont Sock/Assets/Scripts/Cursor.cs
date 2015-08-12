@@ -16,20 +16,22 @@ public class Cursor : MonoBehaviour {
 		
 		if (connectedSock && !connectedSock.Locked) {
 			this.connectedSock.UpdatePosition (cursorPosition);
-		} else {
-			sr.sprite = null;
-		}
-		
+		}		
 	}
-	
+
+	void Update() {
+		if(!connectedSock)
+			sr.sprite = null;
+	}
+
 	public void Up() {
+	
 		if (!connectedSock) {
 			return;
 		}
 		
 		connectedSock.Off ((currentPosition - lastPosition) * 10f);//times force
 		connectedSock = null;
-
 	}
 	
 	public void Down() {
