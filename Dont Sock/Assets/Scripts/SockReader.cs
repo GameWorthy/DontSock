@@ -5,6 +5,7 @@ public class SockReader : MonoBehaviour {
 
 	[SerializeField] private SpriteRenderer sockToFind = null;
 	[SerializeField] private Transform secondSock = null;
+
 	private int sockToFindID = 0;
 	private Game game = null;
 
@@ -12,6 +13,11 @@ public class SockReader : MonoBehaviour {
 		if (other.tag == "Sock") {
 			Sock sock = other.GetComponent<Sock>();
 			if(sock.ID == sockToFindID) {
+				sock.Locked = true;
+				sock.transform.parent = secondSock;
+				sock.transform.localPosition = Vector3.zero;
+				sock.transform.localScale = Vector3.one;
+				sock.transform.rotation = Quaternion.identity;
 				if(game) {
 					game.NextLevel();
 				}

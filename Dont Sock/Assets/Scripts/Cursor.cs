@@ -14,7 +14,7 @@ public class Cursor : MonoBehaviour {
 		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (_to);
 		transform.position = cursorPosition;
 		
-		if (connectedSock) {
+		if (connectedSock && !connectedSock.Locked) {
 			this.connectedSock.UpdatePosition (cursorPosition);
 		} else {
 			sr.sprite = null;

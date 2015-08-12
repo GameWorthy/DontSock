@@ -9,10 +9,21 @@ public class Sock : MonoBehaviour {
 	private SpriteRenderer spriteRender = null;
 
 	private int id = 0;
-	public int ID
-	{
+	public int ID {
 		get { return id; }
 		private set { id = value; }
+	}
+
+	private bool locked = false;
+	public bool Locked {
+		get {return locked;}
+		set {
+			locked = value;
+			if(locked) {
+				spriteRender.sortingLayerName = "TopDrawer";
+				body.velocity = Vector3.zero;
+			}
+		}
 	}
 
 	public void RestartLayerOrder() {
@@ -20,8 +31,7 @@ public class Sock : MonoBehaviour {
 	}
 
 	private Rigidbody2D body;
-	public Rigidbody2D Body
-	{
+	public Rigidbody2D Body {
 		get { return body; }
 	}
 
@@ -51,8 +61,10 @@ public class Sock : MonoBehaviour {
 	}
 
 	public void On() {
-		spriteRender.sortingLayerName = "TopDrawer";
-		LayerUp ();
+		if (!Locked) {
+			spriteRender.sortingLayerName = "TopDrawer";
+			LayerUp ();
+		}
 	}
 
 	public void Off() {
@@ -60,8 +72,10 @@ public class Sock : MonoBehaviour {
 	}
 
 	public void Off(Vector3 _force) {
-		spriteRender.sortingLayerName = "Sock";
-		body.velocity = _force;
+		if (!Locked) {
+			spriteRender.sortingLayerName = "Sock";
+			body.velocity = _force;
+		}
 	}
 
 	public void LayerUp() {
@@ -73,6 +87,8 @@ public class Sock : MonoBehaviour {
 	}
 
 	public void UpdatePosition(Vector3 _newPos) {
-		transform.position = new Vector3 (_newPos.x, _newPos.y, orderInLayer);
+		if (!Locked) {
+			transform.position = new Vector3 (_newPos.x, _newPos.y, orderInLayer);
+		}
 	}
 }
