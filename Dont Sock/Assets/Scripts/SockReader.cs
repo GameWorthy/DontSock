@@ -29,4 +29,12 @@ public class SockReader : MonoBehaviour {
 	public void SetGame(Game _game) {
 		this.game = _game;
 	}
+	
+	public void ReaderOn() {
+		this.GetComponent<Collider2D> ().enabled = true;
+	}
+	
+	public void ReaderOff() {
+		this.GetComponent<Collider2D> ().enabled = false;
+	}
 }

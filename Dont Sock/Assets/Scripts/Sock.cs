@@ -51,6 +51,7 @@ public class Sock : MonoBehaviour {
 	}
 
 	public void On() {
+		spriteRender.sortingLayerName = "TopDrawer";
 		LayerUp ();
 	}
 
@@ -59,6 +60,7 @@ public class Sock : MonoBehaviour {
 	}
 
 	public void Off(Vector3 _force) {
+		spriteRender.sortingLayerName = "Sock";
 		body.velocity = _force;
 	}
 

@@ -7,7 +7,7 @@ public class Game : MonoBehaviour {
 
 	[SerializeField] private Sock sockPrefab = null;
 	[SerializeField] private Timer timer = null;
-	[SerializeField] private Transform drawer = null;
+	[SerializeField] private Drawer drawer = null;
 	[SerializeField] private SockReader sockReader = null;
 	[SerializeField] private Text text = null;
 
@@ -41,7 +41,7 @@ public class Game : MonoBehaviour {
 				s.RestartLayerOrder();
 			}
 
-			s.transform.parent = drawer;
+			s.transform.parent = drawer.DrawerTransform;
 			s.transform.localPosition = new Vector3(
 					Random.Range(-1.9f,1.9f),
 					Random.Range(-2.3f,2.3f),
@@ -62,9 +62,7 @@ public class Game : MonoBehaviour {
 
 	public void NextLevel() {
 		CurrentLevel++;
-		ClearSocks ();
-		PopulateSocks (LevelDB.GetLevelSockAmount (CurrentLevel));
-		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), null);
+		StartCoroutine (NextLevelPresentation ());
 	}
 
 	public void GameOver() {
@@ -76,5 +74,17 @@ public class Game : MonoBehaviour {
 			if(s)Destroy(s.gameObject);
 		}
 		socks = new List<Sock> ();
+	}
+
+	IEnumerator NextLevelPresentation() {
+		sockReader.ReaderOff ();
+		drawer.Close ();
+		yield return new WaitForSeconds (1f);
+		ClearSocks ();
+		PopulateSocks (LevelDB.GetLevelSockAmount (CurrentLevel));
+		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), null);
+		drawer.Open ();
+		yield return new WaitForSeconds (1f);
+		sockReader.ReaderOn ();
 	}
 }
