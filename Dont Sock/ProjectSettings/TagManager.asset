@@ -45,3 +45,6 @@ TagManager:
   - name: Sock
     uniqueID: 2425650257
     locked: 0
+  - name: TopDrawer
+    uniqueID: 4032220929
+    locked: 0

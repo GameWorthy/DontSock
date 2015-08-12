@@ -4,6 +4,7 @@ using System.Collections;
 public class SockReader : MonoBehaviour {
 
 	[SerializeField] private SpriteRenderer sockToFind = null;
+	[SerializeField] private Transform secondSock = null;
 	private int sockToFindID = 0;
 	private Game game = null;
 

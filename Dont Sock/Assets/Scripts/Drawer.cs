@@ -5,6 +5,13 @@ using DG.Tweening;
 public class Drawer : MonoBehaviour {
 
 	[SerializeField] private Transform drawer = null;
+	private float drawerSpeed = 0.5f;
+
+	public float DrawerSpeed
+	{
+		get { return drawerSpeed;}
+		private set {drawerSpeed = value;}
+	}
 
 	public Transform DrawerTransform
 	{
@@ -20,10 +27,10 @@ public class Drawer : MonoBehaviour {
 	}
 
 	public void Open() {
-		drawer.DOLocalMove (openPosition, 1f);	
+		drawer.DOLocalMove (openPosition, DrawerSpeed);	
 	}
 
 	public void Close() {
-		drawer.DOLocalMove (closePosition, 1f);
+		drawer.DOLocalMove (closePosition, DrawerSpeed);
 	}
 }

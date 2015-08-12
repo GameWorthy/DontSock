@@ -79,12 +79,12 @@ public class Game : MonoBehaviour {
 	IEnumerator NextLevelPresentation() {
 		sockReader.ReaderOff ();
 		drawer.Close ();
-		yield return new WaitForSeconds (1f);
+		yield return new WaitForSeconds (drawer.DrawerSpeed);
 		ClearSocks ();
 		PopulateSocks (LevelDB.GetLevelSockAmount (CurrentLevel));
 		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), null);
 		drawer.Open ();
-		yield return new WaitForSeconds (1f);
+		yield return new WaitForSeconds (drawer.DrawerSpeed);
 		sockReader.ReaderOn ();
 	}
 }
