@@ -20,7 +20,7 @@ public class Cursor : MonoBehaviour {
 	}
 
 	void Update() {
-		if(!connectedSock)
+		if(!connectedSock || connectedSock.Locked)
 			sr.sprite = null;
 	}
 
