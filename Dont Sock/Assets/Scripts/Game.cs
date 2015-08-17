@@ -3,12 +3,13 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Game : MonoBehaviour { 
+public class Game : MonoBehaviour {
 
 	[SerializeField] private Sock sockPrefab = null;
 	[SerializeField] private Timer timer = null;
 	[SerializeField] private Drawer drawer = null;
 	[SerializeField] private SockReader sockReader = null;
+	[SerializeField] private LevelAnimation levelAnimation = null;
 	[SerializeField] private Text text = null;
 
 	private List<Sock> socks = new List<Sock> ();
@@ -79,10 +80,13 @@ public class Game : MonoBehaviour {
 	IEnumerator NextLevelPresentation() {
 		sockReader.ReaderOff ();
 		drawer.Close ();
-		yield return new WaitForSeconds (drawer.DrawerSpeed);
+		yield return new WaitForSeconds (drawer.DrawerSpeed/2);
+		levelAnimation.Play ();
+		levelAnimation.SetText ("Level " + CurrentLevel);
 		ClearSocks ();
 		PopulateSocks (LevelDB.GetLevelSockAmount (CurrentLevel));
 		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), null);
+		yield return new WaitForSeconds (drawer.DrawerSpeed/2);
 		drawer.Open ();
 		yield return new WaitForSeconds (drawer.DrawerSpeed);
 		sockReader.ReaderOn ();
