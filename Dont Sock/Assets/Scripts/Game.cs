@@ -12,6 +12,8 @@ public class Game : MonoBehaviour {
 	[SerializeField] private LevelAnimation levelAnimation = null;
 	[SerializeField] private Text text = null;
 
+	private bool gameInProgress = false;
+
 	private List<Sock> socks = new List<Sock> ();
 
 	private int currentLevel = 0;
@@ -22,15 +24,22 @@ public class Game : MonoBehaviour {
 
 	void Start() {
 		Screen.orientation = ScreenOrientation.Portrait;
-		
 		sockReader.SetGame (this);
-		NextLevel ();
 	}
 
 	void Update() {
 		if (Input.GetKeyDown (KeyCode.G)) {
 			NextLevel();
 		}
+	}
+
+	public void StartGame() {
+		if (gameInProgress) {
+			return;
+		}
+
+		gameInProgress = true;
+		NextLevel ();
 	}
 
 	void PopulateSocks(int _totalSocks) {
@@ -67,7 +76,7 @@ public class Game : MonoBehaviour {
 	}
 
 	public void GameOver() {
-		//TODO: stuff...
+		gameInProgress = false;
 	}
 
 	void ClearSocks() {
@@ -82,7 +91,7 @@ public class Game : MonoBehaviour {
 		drawer.Close ();
 		yield return new WaitForSeconds (drawer.DrawerSpeed/2);
 		levelAnimation.Play ();
-		levelAnimation.SetText ("Level " + CurrentLevel);
+		levelAnimation.SetText ("Day " + CurrentLevel);
 		ClearSocks ();
 		PopulateSocks (LevelDB.GetLevelSockAmount (CurrentLevel));
 		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), null);
