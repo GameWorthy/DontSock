@@ -3,14 +3,24 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
+
 public class Game : MonoBehaviour {
+	private enum MenuState	{
+		OFF,
+		MAIN_MENU,
+		IN_GAME,
+		GAME_OVER,
+		SETTINGS
+	}
+
+	private MenuState menuState = MenuState.OFF;
 
 	[SerializeField] private Sock sockPrefab = null;
 	[SerializeField] private Timer timer = null;
 	[SerializeField] private Drawer drawer = null;
 	[SerializeField] private SockReader sockReader = null;
 	[SerializeField] private LevelAnimation levelAnimation = null;
-	[SerializeField] private Text text = null;
+	[SerializeField] private Animator menuAnimator = null;
 
 	private bool gameInProgress = false;
 
@@ -25,9 +35,13 @@ public class Game : MonoBehaviour {
 	void Start() {
 		Screen.orientation = ScreenOrientation.Portrait;
 		sockReader.SetGame (this);
+		menuState = MenuState.MAIN_MENU;
 	}
 
 	void Update() {
+
+		menuAnimator.SetInteger ("state", (int)menuState);
+
 		if (Input.GetKeyDown (KeyCode.G)) {
 			NextLevel();
 		}
@@ -37,32 +51,10 @@ public class Game : MonoBehaviour {
 		if (gameInProgress) {
 			return;
 		}
-
+		CurrentLevel = 0;
 		gameInProgress = true;
+		menuState = MenuState.IN_GAME;
 		NextLevel ();
-	}
-
-	void PopulateSocks(int _totalSocks) {
-		int[] uniqueSockIds = SockDB.GetRandomUniqueSocks (_totalSocks);
-		for (int i = 0; i < _totalSocks; i++) {
-			Sock s = (Instantiate(sockPrefab.gameObject) as GameObject).GetComponent<Sock>();
-
-			if(i == 0) {
-				s.RestartLayerOrder();
-			}
-
-			s.transform.parent = drawer.DrawerTransform;
-			s.transform.localPosition = new Vector3(
-					Random.Range(-1.9f,1.9f),
-					Random.Range(-2.3f,2.3f),
-					s.transform.localPosition.z
-				);
-			StartCoroutine(DelayedSockIdSet(s,uniqueSockIds[i]));
-			socks.Add(s);
-		}
-
-		text.text = currentLevel + " " + uniqueSockIds.Length;
-		sockReader.SetTarget (uniqueSockIds[Random.Range(0,uniqueSockIds.Length - 1)]);
 	}
 
 	private IEnumerator DelayedSockIdSet(Sock _sock, int _id) {
@@ -71,12 +63,45 @@ public class Game : MonoBehaviour {
 	}
 
 	public void NextLevel() {
+
+		if (!gameInProgress) {
+			return;
+		}
+
 		CurrentLevel++;
 		StartCoroutine (NextLevelPresentation ());
 	}
 
 	public void GameOver() {
 		gameInProgress = false;
+		menuState = MenuState.GAME_OVER;
+		drawer.Close ();
+	}
+
+	public void ShowMenu() {
+		menuState = MenuState.MAIN_MENU;
+	}
+	
+	void PopulateSocks(int _totalSocks) {
+		int[] uniqueSockIds = SockDB.GetRandomUniqueSocks (_totalSocks);
+		for (int i = 0; i < _totalSocks; i++) {
+			Sock s = (Instantiate(sockPrefab.gameObject) as GameObject).GetComponent<Sock>();
+			
+			if(i == 0) {
+				s.RestartLayerOrder();
+			}
+			
+			s.transform.parent = drawer.DrawerTransform;
+			s.transform.localPosition = new Vector3(
+				Random.Range(-1.9f,1.9f),
+				Random.Range(-2.3f,2.3f),
+				s.transform.localPosition.z
+				);
+			StartCoroutine(DelayedSockIdSet(s,uniqueSockIds[i]));
+			socks.Add(s);
+		}
+
+		sockReader.SetTarget (uniqueSockIds[Random.Range(0,uniqueSockIds.Length - 1)]);
 	}
 
 	void ClearSocks() {
@@ -94,7 +119,7 @@ public class Game : MonoBehaviour {
 		levelAnimation.SetText ("Day " + CurrentLevel);
 		ClearSocks ();
 		PopulateSocks (LevelDB.GetLevelSockAmount (CurrentLevel));
-		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), null);
+		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), ()=>{GameOver();});
 		yield return new WaitForSeconds (drawer.DrawerSpeed/2);
 		drawer.Open ();
 		yield return new WaitForSeconds (drawer.DrawerSpeed);

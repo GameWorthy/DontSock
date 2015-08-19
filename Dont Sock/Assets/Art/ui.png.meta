@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9609710cfbb5b4c4c962aec6bac0f4cc
-timeCreated: 1439784204
+timeCreated: 1439952508
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -83,7 +83,7 @@ TextureImporter:
         height: 84
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
     - name: ui_1
       rect:
         serializedVersion: 2
@@ -93,7 +93,7 @@ TextureImporter:
         height: 58
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
     - name: ui_2
       rect:
         serializedVersion: 2
@@ -203,7 +203,7 @@ TextureImporter:
         height: 45
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
     - name: ui_13
       rect:
         serializedVersion: 2
@@ -223,7 +223,7 @@ TextureImporter:
         height: 15
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
     - name: ui_15
       rect:
         serializedVersion: 2
@@ -233,7 +233,7 @@ TextureImporter:
         height: 27
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
     - name: ui_16
       rect:
         serializedVersion: 2
@@ -253,7 +253,7 @@ TextureImporter:
         height: 18
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
     - name: ui_18
       rect:
         serializedVersion: 2
@@ -293,7 +293,7 @@ TextureImporter:
         height: 18
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 4, y: 3, z: 3, w: 3}
+      border: {x: 5, y: 5, z: 5, w: 5}
     - name: ui_22
       rect:
         serializedVersion: 2
@@ -313,7 +313,7 @@ TextureImporter:
         height: 18
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
     - name: ui_24
       rect:
         serializedVersion: 2
