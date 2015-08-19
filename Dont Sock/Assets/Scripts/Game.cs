@@ -81,6 +81,10 @@ public class Game : MonoBehaviour {
 	public void ShowMenu() {
 		menuState = MenuState.MAIN_MENU;
 	}
+
+	public void ShowSettings() {
+		menuState = MenuState.SETTINGS;
+	}
 	
 	void PopulateSocks(int _totalSocks) {
 		int[] uniqueSockIds = SockDB.GetRandomUniqueSocks (_totalSocks);
@@ -119,7 +123,7 @@ public class Game : MonoBehaviour {
 		levelAnimation.SetText ("Day " + CurrentLevel);
 		ClearSocks ();
 		PopulateSocks (LevelDB.GetLevelSockAmount (CurrentLevel));
-		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), ()=>{GameOver();});
+		//timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), ()=>{GameOver();});
 		yield return new WaitForSeconds (drawer.DrawerSpeed/2);
 		drawer.Open ();
 		yield return new WaitForSeconds (drawer.DrawerSpeed);
