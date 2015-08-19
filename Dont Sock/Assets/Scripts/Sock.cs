@@ -30,6 +30,7 @@ public class Sock : MonoBehaviour {
 		orderInLayer = 0.0f;
 	}
 
+	private Collider2D coll;
 	private Rigidbody2D body;
 	public Rigidbody2D Body {
 		get { return body; }
@@ -37,6 +38,7 @@ public class Sock : MonoBehaviour {
 
 	void Start () {
 		this.body = GetComponent<Rigidbody2D> ();
+		this.coll = GetComponent<Collider2D> ();
 		this.spriteRender = gameObject.GetComponent<SpriteRenderer> ();
 
 		this.transform.localRotation = Quaternion.Euler (0,0,Random.Range(0,360));
@@ -63,6 +65,7 @@ public class Sock : MonoBehaviour {
 	public void On() {
 		if (!Locked) {
 			spriteRender.sortingLayerName = "TopDrawer";
+			this.coll.enabled = false;
 			LayerUp ();
 		}
 	}
@@ -74,6 +77,7 @@ public class Sock : MonoBehaviour {
 	public void Off(Vector3 _force) {
 		if (!Locked) {
 			spriteRender.sortingLayerName = "Sock";
+			this.coll.enabled = true;
 			body.velocity = _force;
 		}
 	}
