@@ -1,11 +1,15 @@
 fileFormatVersion: 2
 guid: 580e8679728fb4bfb9426240bc780da6
-timeCreated: 1440140952
+timeCreated: 1440144200
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: RugsSpriteSheet_0
     21300002: RugsSpriteSheet_1
+    21300004: RugsSpriteSheet_2
+    21300006: RugsSpriteSheet_3
+    21300008: RugsSpriteSheet_4
+    21300010: RugsSpriteSheet_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,7 +59,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 106
+        y: 260
         width: 119
         height: 154
       alignment: 0
@@ -65,7 +69,47 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 121
-        y: 106
+        y: 260
+        width: 119
+        height: 154
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RugsSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 260
+        width: 119
+        height: 154
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RugsSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 105
+        width: 119
+        height: 154
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RugsSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 105
+        width: 119
+        height: 154
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RugsSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 105
         width: 119
         height: 154
       alignment: 0
