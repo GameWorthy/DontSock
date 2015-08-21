@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b2b93092b715415489a8bf17a359144e
-timeCreated: 1438843849
+timeCreated: 1440141597
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -150,8 +150,8 @@ TextureImporter:
         y: 68
         width: 15
         height: 10
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_06
       rect:
@@ -160,8 +160,8 @@ TextureImporter:
         y: 72
         width: 35
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_12
       rect:
@@ -170,8 +170,8 @@ TextureImporter:
         y: 72
         width: 61
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_02
       rect:
@@ -180,8 +180,8 @@ TextureImporter:
         y: 57
         width: 15
         height: 10
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_07
       rect:
@@ -190,8 +190,8 @@ TextureImporter:
         y: 65
         width: 35
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_13
       rect:
@@ -200,8 +200,8 @@ TextureImporter:
         y: 65
         width: 61
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_08
       rect:
@@ -210,8 +210,8 @@ TextureImporter:
         y: 58
         width: 35
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_14
       rect:
@@ -220,8 +220,8 @@ TextureImporter:
         y: 58
         width: 61
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_03
       rect:
@@ -230,8 +230,8 @@ TextureImporter:
         y: 45
         width: 15
         height: 11
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_09
       rect:
@@ -240,8 +240,8 @@ TextureImporter:
         y: 51
         width: 35
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_15
       rect:
@@ -250,8 +250,8 @@ TextureImporter:
         y: 51
         width: 61
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_10
       rect:
@@ -260,8 +260,8 @@ TextureImporter:
         y: 44
         width: 35
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_16
       rect:
@@ -270,8 +270,8 @@ TextureImporter:
         y: 44
         width: 61
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_04
       rect:
@@ -280,8 +280,8 @@ TextureImporter:
         y: 33
         width: 15
         height: 11
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_11
       rect:
@@ -290,8 +290,8 @@ TextureImporter:
         y: 37
         width: 35
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_17
       rect:
@@ -300,8 +300,8 @@ TextureImporter:
         y: 37
         width: 61
         height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: handle_05
       rect:
@@ -310,8 +310,8 @@ TextureImporter:
         y: 21
         width: 15
         height: 11
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 2
+      pivot: {x: .5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

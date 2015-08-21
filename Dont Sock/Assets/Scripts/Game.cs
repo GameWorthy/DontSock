@@ -21,6 +21,8 @@ public class Game : MonoBehaviour {
 	[SerializeField] private SockReader sockReader = null;
 	[SerializeField] private LevelAnimation levelAnimation = null;
 	[SerializeField] private Animator menuAnimator = null;
+	[SerializeField] private List<SpriteRandomizer> spriteRandomizers = null;
+	[SerializeField] private List<Color> cameraColors = null;
 
 	private bool gameInProgress = false;
 
@@ -36,6 +38,7 @@ public class Game : MonoBehaviour {
 		Screen.orientation = ScreenOrientation.Portrait;
 		sockReader.SetGame (this);
 		menuState = MenuState.MAIN_MENU;
+		ShowMenu ();
 	}
 
 	void Update() {
@@ -79,6 +82,10 @@ public class Game : MonoBehaviour {
 	}
 
 	public void ShowMenu() {
+		foreach (SpriteRandomizer sr in spriteRandomizers) {
+			sr.Randomize();
+		}
+		Camera.main.backgroundColor = cameraColors[Random.Range(0,cameraColors.Count)];
 		menuState = MenuState.MAIN_MENU;
 	}
 
