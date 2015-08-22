@@ -48,6 +48,10 @@ public class Game : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.G)) {
 			NextLevel();
 		}
+
+		if (Input.GetKeyDown (KeyCode.K)) {
+			ShowAllSocks();
+		}
 	}
 
 	public void StartGame() {
@@ -108,6 +112,7 @@ public class Game : MonoBehaviour {
 				Random.Range(-2.3f,2.3f),
 				s.transform.localPosition.z
 				);
+			s.name = "sock (" + uniqueSockIds[i] + ")";
 			StartCoroutine(DelayedSockIdSet(s,uniqueSockIds[i]));
 			socks.Add(s);
 		}
@@ -120,6 +125,24 @@ public class Game : MonoBehaviour {
 			if(s)Destroy(s.gameObject);
 		}
 		socks = new List<Sock> ();
+	}
+
+	void ShowAllSocks() {
+		for (int i = 0; i < SockDB.TotalSocks; i++) {
+			Sock s = (Instantiate(sockPrefab.gameObject) as GameObject).GetComponent<Sock>();
+			
+			if(i == 0) {
+				s.RestartLayerOrder();
+			}
+
+			s.transform.localPosition = new Vector3(
+				(int)i%11,
+				-(int)i/11,
+				0
+				);
+			s.name = i.ToString();
+			this.StartCoroutine(DelayedSockIdSet(s,i));
+		}
 	}
 
 	IEnumerator NextLevelPresentation() {
