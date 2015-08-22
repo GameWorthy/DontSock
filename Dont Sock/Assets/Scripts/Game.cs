@@ -112,7 +112,7 @@ public class Game : MonoBehaviour {
 			socks.Add(s);
 		}
 
-		sockReader.SetTarget (uniqueSockIds[Random.Range(0,uniqueSockIds.Length - 1)]);
+		sockReader.SetTarget (uniqueSockIds[Random.Range(0,(int)(uniqueSockIds.Length/2) - 1)]);
 	}
 
 	void ClearSocks() {
