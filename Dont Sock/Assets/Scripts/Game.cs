@@ -83,6 +83,7 @@ public class Game : MonoBehaviour {
 		gameInProgress = false;
 		menuState = MenuState.GAME_OVER;
 		drawer.Close ();
+		timer.ResetCursor ();
 	}
 
 	public void ShowMenu() {
@@ -148,12 +149,13 @@ public class Game : MonoBehaviour {
 	IEnumerator NextLevelPresentation() {
 		sockReader.ReaderOff ();
 		drawer.Close ();
+		timer.ResetCursor ();
 		yield return new WaitForSeconds (drawer.DrawerSpeed/2);
 		levelAnimation.Play ();
 		levelAnimation.SetText ("Day " + CurrentLevel);
 		ClearSocks ();
 		PopulateSocks (LevelDB.GetLevelSockAmount (CurrentLevel));
-		//timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), ()=>{GameOver();});
+		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), ()=>{GameOver();timer.ResetCursor();});
 		yield return new WaitForSeconds (drawer.DrawerSpeed/2);
 		drawer.Open ();
 		yield return new WaitForSeconds (drawer.DrawerSpeed);

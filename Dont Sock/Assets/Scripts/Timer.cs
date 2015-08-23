@@ -1,53 +1,69 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using DG.Tweening;
 
 public class Timer : MonoBehaviour {
+	
+	[SerializeField] private Transform cursorTransform = null;
+	[SerializeField] private Animator anim = null;
 
-	[SerializeField] private Text timeText = null;
-
-	private int seconds;
+	private int clockSeconds = 10;
+	private float warningSecond = 3f;
+	private float currentSeconds = 0;
+	private bool counting = false;
 	private System.Action callBack;
 
 	public void StartTimer(int _seconds, System.Action _callBack) {
-		StopTimer ();
-		seconds = _seconds;
+		anim.SetInteger ("state", 0);
+		currentSeconds = Mathf.Clamp(_seconds, 0,clockSeconds);
 		callBack = _callBack;
-		StartCoroutine("IStartTimer");
+		counting = true;
 	}
 
 	public void StopTimer(){
-		StopCoroutine ("IStartTimer");
+		counting = false;
+		anim.SetInteger ("state", 0);
 	}
-	
-	private IEnumerator IStartTimer() {
-		SetTimerText(seconds);
 
-		while (seconds > 0) {
-			yield return new WaitForSeconds (1f);
+	public void ResetCursor() {
+		StopTimer ();
+		float zRotation = cursorTransform.rotation.eulerAngles.z;
+		if (zRotation == 0) {
+			zRotation = 360;
+		}
+		
+		DOTween.To ((float f)=>{
+			cursorTransform.transform.localRotation = Quaternion.Euler(0,0,f);
+		}, zRotation, 360, 0.2f);
+	}
 
-			if(seconds > 5) {
-				timeText.color = new Color(0,255,0);
-			} else {
-				timeText.color = new Color(255,0,0);
+	void Update() {
+		if (!counting) {
+			return;
+		}
+
+
+		currentSeconds -= Time.deltaTime;
+
+		float x = (currentSeconds / clockSeconds) - 1;
+		cursorTransform.localRotation = Quaternion.Euler (new Vector3 (0,0,360 * x));
+
+		int animState = 0;
+		if (currentSeconds < warningSecond) {
+			animState = 1;
+		}
+
+		if (currentSeconds <= 0) {
+			animState = 0;
+			StopTimer();
+			if(callBack != null) {
+				callBack.Invoke();
+				callBack = null;
 			}
-
-			seconds--;
-			SetTimerText(seconds);
 		}
 
-		if (callBack != null) {
-			callBack.Invoke();
-		}
+		anim.SetInteger ("state", animState);
 
-		yield return null;
-	}
-
-	private void SetTimerText(int _seconds) {
-		string time = _seconds.ToString ();
-		if (_seconds < 10) {
-			time = "0" + _seconds;
-		}
-		timeText.text = "00:" + time;
 	}
 }

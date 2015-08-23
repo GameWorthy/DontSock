@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b2b93092b715415489a8bf17a359144e
-timeCreated: 1440141597
+timeCreated: 1440303465
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -28,6 +28,8 @@ TextureImporter:
     21300042: handle_11
     21300044: handle_17
     21300046: handle_05
+    21300048: clock_cursor
+    21300050: clock_white
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -312,6 +314,26 @@ TextureImporter:
         height: 11
       alignment: 2
       pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: clock_cursor
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 241
+        width: 3
+        height: 13
+      alignment: 9
+      pivot: {x: .5, y: .200000003}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: clock_white
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 228
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
