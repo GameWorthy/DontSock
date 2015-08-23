@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b2b93092b715415489a8bf17a359144e
-timeCreated: 1440303465
+timeCreated: 1440307136
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -30,6 +30,7 @@ TextureImporter:
     21300046: handle_05
     21300048: clock_cursor
     21300050: clock_white
+    21300052: cursor_edge
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -328,10 +329,20 @@ TextureImporter:
     - name: clock_white
       rect:
         serializedVersion: 2
-        x: 94
+        x: 121
         y: 228
         width: 26
         height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursor_edge
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 252
+        width: 1
+        height: 2
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

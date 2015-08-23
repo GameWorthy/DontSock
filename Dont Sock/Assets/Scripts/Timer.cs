@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour {
 	[SerializeField] private Animator anim = null;
 
 	private int clockSeconds = 10;
-	private float warningSecond = 3f;
+	private float warningSecond = 2.5f;
 	private float currentSeconds = 0;
 	private bool counting = false;
 	private System.Action callBack;
@@ -47,7 +47,6 @@ public class Timer : MonoBehaviour {
 		currentSeconds -= Time.deltaTime;
 
 		float x = (currentSeconds / clockSeconds) - 1;
-		cursorTransform.localRotation = Quaternion.Euler (new Vector3 (0,0,360 * x));
 
 		int animState = 0;
 		if (currentSeconds < warningSecond) {
@@ -61,8 +60,10 @@ public class Timer : MonoBehaviour {
 				callBack.Invoke();
 				callBack = null;
 			}
+			x = 1;
 		}
 
+		cursorTransform.localRotation = Quaternion.Euler (new Vector3 (0,0,360 * x));
 		anim.SetInteger ("state", animState);
 
 	}
