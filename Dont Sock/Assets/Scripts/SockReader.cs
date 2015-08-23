@@ -5,6 +5,7 @@ public class SockReader : MonoBehaviour {
 
 	[SerializeField] private SpriteRenderer sockToFind = null;
 	[SerializeField] private Transform secondSock = null;
+	[SerializeField] private Animator anim = null;
 
 	private int sockToFindID = 0;
 	private Game game = null;
@@ -21,9 +22,11 @@ public class SockReader : MonoBehaviour {
 				if(game) {
 					game.NextLevel();
 				}
+				anim.SetInteger("state",0);
 			}
 			else {
 				game.GameOver();
+				anim.SetInteger("state",0);
 			}
 		}
 	}
@@ -31,6 +34,10 @@ public class SockReader : MonoBehaviour {
 	public void SetTarget(int _targetID) {
 		sockToFindID = _targetID;
 		sockToFind.sprite = SockDB.GetSockSprite(sockToFindID);
+	}
+
+	public void Show() {
+		anim.SetInteger("state",1);
 	}
 
 	public void SetGame(Game _game) {
@@ -43,5 +50,9 @@ public class SockReader : MonoBehaviour {
 	
 	public void ReaderOff() {
 		this.GetComponent<Collider2D> ().enabled = false;
+	}
+
+	public void SetAnimationSpeed(float _speed) {
+		anim.speed = _speed;
 	}
 }

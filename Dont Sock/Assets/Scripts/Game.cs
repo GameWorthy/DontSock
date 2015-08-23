@@ -150,15 +150,32 @@ public class Game : MonoBehaviour {
 		sockReader.ReaderOff ();
 		drawer.Close ();
 		timer.ResetCursor ();
+
 		yield return new WaitForSeconds (drawer.DrawerSpeed/2);
+
 		levelAnimation.Play ();
 		levelAnimation.SetText ("Day " + CurrentLevel);
 		ClearSocks ();
 		PopulateSocks (LevelDB.GetLevelSockAmount (CurrentLevel));
-		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), ()=>{GameOver();timer.ResetCursor();});
+
 		yield return new WaitForSeconds (drawer.DrawerSpeed/2);
+
 		drawer.Open ();
+
+		yield return new WaitForSeconds (0.55f);
+
+		sockReader.Show();
+		float waitTime = 1f;
+		if (currentLevel == 1) {
+			sockReader.SetAnimationSpeed (0.5f);
+			waitTime *= 2;
+		} else {
+			sockReader.SetAnimationSpeed (1f);
+		}
+
 		yield return new WaitForSeconds (drawer.DrawerSpeed);
+
+		timer.StartTimer (LevelDB.GetLevelTime (CurrentLevel), ()=>{GameOver();timer.ResetCursor();});
 		sockReader.ReaderOn ();
 	}
 }

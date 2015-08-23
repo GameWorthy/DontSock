@@ -78,7 +78,8 @@ public class Sock : MonoBehaviour {
 		if (!Locked) {
 			spriteRender.sortingLayerName = "Sock";
 			this.coll.enabled = true;
-			body.velocity = _force;
+			//Disabling force applied
+			//body.velocity = _force;
 		}
 	}
 
