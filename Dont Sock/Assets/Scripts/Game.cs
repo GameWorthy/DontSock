@@ -20,11 +20,14 @@ public class Game : MonoBehaviour {
 	[SerializeField] private Drawer drawer = null;
 	[SerializeField] private SockReader sockReader = null;
 	[SerializeField] private LevelAnimation levelAnimation = null;
-	[SerializeField] private Animator menuAnimator = null;
+	[SerializeField] private Menu menu = null;
 	[SerializeField] private List<SpriteRandomizer> spriteRandomizers = null;
 	[SerializeField] private List<Color> cameraColors = null;
 
 	private bool gameInProgress = false;
+
+	private int highestScore;
+	private int totalScore;//sum of all games
 
 	private List<Sock> socks = new List<Sock> ();
 
@@ -35,6 +38,11 @@ public class Game : MonoBehaviour {
 	}
 
 	void Start() {
+		//TODO:Create a saver class to deal with encryption saving data
+		highestScore = PlayerPrefs.GetInt ("highest_score",0);
+		totalScore = PlayerPrefs.GetInt ("total_score",0);
+
+
 		Screen.orientation = ScreenOrientation.Portrait;
 		sockReader.SetGame (this);
 		menuState = MenuState.MAIN_MENU;
@@ -43,7 +51,7 @@ public class Game : MonoBehaviour {
 
 	void Update() {
 
-		menuAnimator.SetInteger ("state", (int)menuState);
+		menu.SetAnimationState ((int)menuState);
 
 		if (Input.GetKeyDown (KeyCode.G)) {
 			NextLevel();
@@ -84,6 +92,17 @@ public class Game : MonoBehaviour {
 		menuState = MenuState.GAME_OVER;
 		drawer.Close ();
 		timer.ResetCursor ();
+
+		if (currentLevel > highestScore) {
+			highestScore = currentLevel;
+			PlayerPrefs.SetInt("highest_score", highestScore);
+			menu.ActivateHighScore();
+		}
+
+		menu.SetHighScore (highestScore);
+		menu.SetCurrentScore (currentLevel);
+		totalScore += currentLevel;
+		PlayerPrefs.SetInt ("total_score", totalScore);
 	}
 
 	public void ShowMenu() {
