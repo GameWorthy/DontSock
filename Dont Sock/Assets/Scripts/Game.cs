@@ -69,6 +69,7 @@ public class Game : MonoBehaviour {
 		CurrentLevel = 0;
 		gameInProgress = true;
 		menuState = MenuState.IN_GAME;
+		timer.ShowTimer ();
 		NextLevel ();
 	}
 
@@ -111,6 +112,7 @@ public class Game : MonoBehaviour {
 		}
 		Camera.main.backgroundColor = cameraColors[Random.Range(0,cameraColors.Count)];
 		menuState = MenuState.MAIN_MENU;
+		timer.HideTimer ();
 	}
 
 	public void ShowSettings() {

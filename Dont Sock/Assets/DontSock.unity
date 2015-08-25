@@ -2644,7 +2644,7 @@ GameObject:
   - 114: {fileID: 1074912414}
   - 95: {fileID: 1074912415}
   m_Layer: 0
-  m_Name: Clock
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,6 +13,25 @@ public class Timer : MonoBehaviour {
 	private float currentSeconds = 0;
 	private bool counting = false;
 	private System.Action callBack;
+	private Vector3 initialPosition;
+
+	void Start() {
+		initialPosition = transform.localPosition;
+		Debug.Log (initialPosition);
+		HideTimer (0.05f);
+	}
+
+	public void ShowTimer(float _time = 0.2f) {
+		transform.DOLocalMove (initialPosition,_time);
+	}
+
+	public void HideTimer(float _time = 0.2f) {
+		transform.DOLocalMove (new Vector3(
+				initialPosition.x,
+				initialPosition.y + 5,
+				initialPosition.z
+			),_time);
+	}
 
 	public void StartTimer(int _seconds, System.Action _callBack) {
 		anim.SetInteger ("state", 0);
