@@ -18,7 +18,7 @@ public class Timer : MonoBehaviour {
 
 	void Start() {
 		initialPosition = transform.localPosition;
-		HideTimer (0.05f);
+		HideTimer (0.5f);
 	}
 
 	public void ShowTimer(float _time = 0.2f) {
