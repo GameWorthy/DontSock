@@ -12,6 +12,7 @@ public class Menu : MonoBehaviour {
 	[SerializeField] private HighScoreStar highScoreStar;
 	[SerializeField] private AudioSource audioSource = null;
 	[SerializeField] private AudioClip highScoreClip = null;
+	[SerializeField] private AudioClip buttonClickClip = null;
 	[SerializeField] private Text soundSettingsText = null;
 
 	private bool soundIsOn;
@@ -73,6 +74,11 @@ public class Menu : MonoBehaviour {
 
 	public void SettingsAbout() {
 		Application.OpenURL ("http://gameworthystudios.com/");
+	}
+
+	public void ButtonSound() {
+		audioSource.clip = buttonClickClip;
+		audioSource.Play ();
 	}
 }
 
