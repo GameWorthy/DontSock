@@ -93,7 +93,8 @@ public class Sock : MonoBehaviour {
 
 	public void UpdatePosition(Vector3 _newPos) {
 		if (!Locked) {
-			transform.position = new Vector3 (_newPos.x, _newPos.y, orderInLayer);
+			transform.localPosition = new Vector3 (
+				Mathf.Clamp(_newPos.x,-2.25f,2.25f),Mathf.Clamp(_newPos.y,-2.5f,100f), orderInLayer);
 		}
 	}
 }
