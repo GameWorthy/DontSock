@@ -55,15 +55,15 @@ public class Menu : MonoBehaviour {
 
 	public void ToggleSoundSettings() {
 		soundIsOn = !soundIsOn;
-		int setting = soundIsOn ? 1 : 0;
+		int setting = soundIsOn ? 0 : 1;
 
-		PlayerPrefs.SetInt ("soundSettings",setting);
+		PlayerPrefs.SetInt ("sound_setting",setting);
 		if (soundIsOn) {
 			soundSettingsText.text = "SOUND: ON";
-			Camera.main.GetComponent<AudioListener>().enabled = true;
+			AudioListener.volume = 1;
 		} else {	
 			soundSettingsText.text = "SOUND: OFF";
-			Camera.main.GetComponent<AudioListener>().enabled = false;
+			AudioListener.volume = 0;
 		}
 	}
 
