@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour {
 	
 	[SerializeField] private Transform cursorTransform = null;
 	[SerializeField] private Animator anim = null;
+	[SerializeField] private AudioSource audioSource = null;
 
 	private int clockSeconds = 10;
 	private float warningSecond = 2.5f;
@@ -17,7 +18,6 @@ public class Timer : MonoBehaviour {
 
 	void Start() {
 		initialPosition = transform.localPosition;
-		Debug.Log (initialPosition);
 		HideTimer (0.05f);
 	}
 
@@ -41,6 +41,7 @@ public class Timer : MonoBehaviour {
 	}
 
 	public void StopTimer(){
+		audioSource.Stop ();
 		counting = false;
 		anim.SetInteger ("state", 0);
 	}
@@ -70,6 +71,9 @@ public class Timer : MonoBehaviour {
 		int animState = 0;
 		if (currentSeconds < warningSecond) {
 			animState = 1;
+			if(!audioSource.isPlaying) {
+				audioSource.Play();
+			}
 		}
 
 		if (currentSeconds <= 0) {

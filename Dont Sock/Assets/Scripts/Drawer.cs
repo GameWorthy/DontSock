@@ -4,7 +4,11 @@ using DG.Tweening;
 
 public class Drawer : MonoBehaviour {
 
+	[SerializeField] private bool isOpen = true;
 	[SerializeField] private Transform drawer = null;
+	[SerializeField] private AudioSource audioSource = null;
+	[SerializeField] private AudioClip openClip = null;
+	[SerializeField] private AudioClip closeClip = null;
 	private float drawerSpeed = 0.35f;
 
 	public float DrawerSpeed {
@@ -25,10 +29,20 @@ public class Drawer : MonoBehaviour {
 	}
 
 	public void Open() {
-		drawer.DOLocalMove (openPosition, DrawerSpeed);	
+		if (!isOpen) {
+			audioSource.clip = openClip;
+			audioSource.Play ();
+			drawer.DOLocalMove (openPosition, DrawerSpeed);	
+			isOpen = true;
+		}
 	}
 
 	public void Close() {
-		drawer.DOLocalMove (closePosition, DrawerSpeed);
+		if (isOpen) {
+			audioSource.clip = closeClip;
+			audioSource.Play ();
+			drawer.DOLocalMove (closePosition, DrawerSpeed);
+			isOpen = false;
+		}
 	}
 }

@@ -10,6 +10,8 @@ public class Menu : MonoBehaviour {
 	[SerializeField] private Text highScore;	
 	[SerializeField] private Text currentScore;
 	[SerializeField] private HighScoreStar highScoreStar;
+	[SerializeField] private AudioSource audioSource = null;
+	[SerializeField] private AudioClip highScoreClip = null;
 
 	void Start () {
 		foreach (RectTransform rect in menusToCenter) {
@@ -27,6 +29,8 @@ public class Menu : MonoBehaviour {
 	}
 	
 	public void ActivateHighScore() {
+		audioSource.clip = highScoreClip;
+		audioSource.Play ();
 		highScoreStar.Activate ();
 	}
 
