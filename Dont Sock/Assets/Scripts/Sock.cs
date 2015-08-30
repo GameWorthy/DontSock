@@ -65,6 +65,7 @@ public class Sock : MonoBehaviour {
 	public void On() {
 		if (!Locked) {
 			spriteRender.sortingLayerName = "TopDrawer";
+			spriteRender.sortingOrder = 1;
 			this.coll.enabled = false;
 			LayerUp ();
 		}
@@ -78,6 +79,7 @@ public class Sock : MonoBehaviour {
 		if (!Locked) {
 			spriteRender.sortingLayerName = "Sock";
 			this.coll.enabled = true;
+			spriteRender.sortingOrder = 0;
 			//Disabling force applied
 			//body.velocity = _force;
 		}
