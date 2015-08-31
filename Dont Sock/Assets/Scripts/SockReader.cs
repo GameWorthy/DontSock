@@ -6,9 +6,16 @@ public class SockReader : MonoBehaviour {
 	[SerializeField] private SpriteRenderer sockToFind = null;
 	[SerializeField] private Transform secondSock = null;
 	[SerializeField] private Animator anim = null;
+	[SerializeField] private AudioClip correctClip;
+	[SerializeField] private AudioClip incorrectClip = null;
+	private AudioSource audioSource = null;
 
 	private int sockToFindID = 0;
 	private Game game = null;
+
+	void Start() {
+		audioSource = gameObject.GetComponent<AudioSource> ();
+	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Sock") {
@@ -22,10 +29,14 @@ public class SockReader : MonoBehaviour {
 				if(game) {
 					game.NextLevel();
 				}
+				audioSource.clip = correctClip;
+				audioSource.Play ();
 				anim.SetInteger("state",0);
 			}
 			else {
 				game.GameOver();
+				audioSource.clip = incorrectClip;
+				audioSource.Play ();
 				anim.SetInteger("state",0);
 			}
 		}

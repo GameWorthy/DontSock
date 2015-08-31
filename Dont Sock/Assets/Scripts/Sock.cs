@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class Sock : MonoBehaviour {
 
 	static float orderInLayer = 0.0f;
-
 	private SpriteRenderer spriteRender = null;
+	private AudioSource audioSource = null;
 
 	private int id = 0;
 	public int ID {
@@ -40,6 +40,7 @@ public class Sock : MonoBehaviour {
 		this.body = GetComponent<Rigidbody2D> ();
 		this.coll = GetComponent<Collider2D> ();
 		this.spriteRender = gameObject.GetComponent<SpriteRenderer> ();
+		this.audioSource = gameObject.GetComponent<AudioSource> ();
 
 		this.transform.localRotation = Quaternion.Euler (0,0,Random.Range(0,360));
 		if (Random.value > 0.5f) {
@@ -67,6 +68,7 @@ public class Sock : MonoBehaviour {
 			spriteRender.sortingLayerName = "TopDrawer";
 			spriteRender.sortingOrder = 1;
 			this.coll.enabled = false;
+			audioSource.Play();
 			LayerUp ();
 		}
 	}

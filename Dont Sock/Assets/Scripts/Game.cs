@@ -93,6 +93,7 @@ public class Game : MonoBehaviour {
 		menuState = MenuState.GAME_OVER;
 		drawer.Close ();
 		timer.ResetCursor ();
+		sockReader.ReaderOff ();
 
 		if (currentLevel > highestScore) {
 			highestScore = currentLevel;
