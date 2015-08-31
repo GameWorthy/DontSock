@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9609710cfbb5b4c4c962aec6bac0f4cc
-timeCreated: 1440396883
+timeCreated: 1440988681
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -31,6 +31,7 @@ TextureImporter:
     21300048: ui_24
     21300050: thin_cut
     21300052: star_record
+    21300054: white
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -239,10 +240,20 @@ TextureImporter:
     - name: star_record
       rect:
         serializedVersion: 2
-        x: 60
-        y: 99
-        width: 33
-        height: 33
+        x: 16
+        y: 71
+        width: 42
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: white
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 139
+        width: 2
+        height: 2
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

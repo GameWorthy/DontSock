@@ -31,13 +31,13 @@ public class SockReader : MonoBehaviour {
 				}
 				audioSource.clip = correctClip;
 				audioSource.Play ();
-				anim.SetInteger("state",0);
+				Hide ();
 			}
 			else {
 				game.GameOver();
 				audioSource.clip = incorrectClip;
 				audioSource.Play ();
-				anim.SetInteger("state",0);
+				Hide ();
 			}
 		}
 	}
@@ -49,6 +49,10 @@ public class SockReader : MonoBehaviour {
 
 	public void Show() {
 		anim.SetInteger("state",1);
+	}
+
+	public void Hide() {
+		anim.SetInteger("state",0);
 	}
 
 	public void SetGame(Game _game) {

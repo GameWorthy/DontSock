@@ -60,6 +60,10 @@ public class Game : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.K)) {
 			ShowAllSocks();
 		}
+
+		if (Input.GetKeyDown (KeyCode.R)) {
+			highestScore = 0;
+		}
 	}
 
 	public void StartGame() {
@@ -94,6 +98,7 @@ public class Game : MonoBehaviour {
 		drawer.Close ();
 		timer.ResetCursor ();
 		sockReader.ReaderOff ();
+		sockReader.Hide ();
 
 		if (currentLevel > highestScore) {
 			highestScore = currentLevel;
