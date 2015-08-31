@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using DG;
+using DG.Tweening;
 
 public class BlackFade : MonoBehaviour {
 
@@ -12,6 +12,6 @@ public class BlackFade : MonoBehaviour {
 
 	void Start () {
 		spriteRender = gameObject.GetComponent<SpriteRenderer> ();
-		//SpriteRenderer.DoColor ();
+		spriteRender.DOColor(new Color(0,0,0,0),1);
 	}	
 }
