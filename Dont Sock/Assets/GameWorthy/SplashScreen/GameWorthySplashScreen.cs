@@ -13,5 +13,6 @@ public class GameWorthySplashScreen : MonoBehaviour {
 
 	public void LoadNextScene() {
 		Application.LoadLevel (sceneToLoad);
+		bg.gameObject.SetActive (false);
 	}
 }
