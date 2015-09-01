@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using GameWorthy;
 
 
 public class Game : MonoBehaviour {
@@ -10,7 +11,8 @@ public class Game : MonoBehaviour {
 		MAIN_MENU,
 		IN_GAME,
 		GAME_OVER,
-		SETTINGS
+		SETTINGS,
+		MEDALS
 	}
 
 	private MenuState menuState = MenuState.OFF;
@@ -47,6 +49,9 @@ public class Game : MonoBehaviour {
 		sockReader.SetGame (this);
 		menuState = MenuState.MAIN_MENU;
 		ShowMenu ();
+
+		MedalSystem.Initiate ();
+		menu.UpdateMedalsText ();
 	}
 
 	void Update() {
@@ -106,6 +111,13 @@ public class Game : MonoBehaviour {
 			menu.ActivateHighScore();
 		}
 
+		//give medals
+		if (currentLevel >= 45) MedalSystem.TotalPlatinum++;
+		else if (currentLevel >= 30) MedalSystem.TotalGold++;
+		else if (currentLevel >= 15) MedalSystem.TotalSilver++;
+		else if (currentLevel >= 6) MedalSystem.TotalBronze++;
+		menu.UpdateMedalsText ();
+
 		menu.SetHighScore (highestScore);
 		menu.SetCurrentScore (currentLevel);
 		totalScore += currentLevel;
@@ -123,6 +135,10 @@ public class Game : MonoBehaviour {
 
 	public void ShowSettings() {
 		menuState = MenuState.SETTINGS;
+	}
+
+	public void ShowMedals() {
+		menuState = MenuState.MEDALS;
 	}
 	
 	void PopulateSocks(int _totalSocks) {

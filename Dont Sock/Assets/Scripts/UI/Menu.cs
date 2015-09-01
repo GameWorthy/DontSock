@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using GameWorthy;
 
 public class Menu : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class Menu : MonoBehaviour {
 	[SerializeField] private AudioClip highScoreClip = null;
 	[SerializeField] private AudioClip buttonClickClip = null;
 	[SerializeField] private Text soundSettingsText = null;
+	[SerializeField] private Text[] medalsText = null;
 
 	private bool soundIsOn;
 
@@ -79,6 +81,13 @@ public class Menu : MonoBehaviour {
 	public void ButtonSound() {
 		audioSource.clip = buttonClickClip;
 		audioSource.Play ();
+	}
+
+	public void UpdateMedalsText() {
+		medalsText [0].text = " x  " + MedalSystem.TotalBronze.ToString ();
+		medalsText [1].text = " x  " + MedalSystem.TotalSilver.ToString ();
+		medalsText [2].text = " x  " + MedalSystem.TotalGold.ToString ();
+		medalsText [3].text = " x  " + MedalSystem.TotalPlatinum.ToString ();
 	}
 }
 

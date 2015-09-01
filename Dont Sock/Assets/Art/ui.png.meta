@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9609710cfbb5b4c4c962aec6bac0f4cc
-timeCreated: 1440988681
+timeCreated: 1441087018
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -32,6 +32,8 @@ TextureImporter:
     21300050: thin_cut
     21300052: star_record
     21300054: white
+    21300056: medal_tag
+    21300058: sock_medal
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -254,6 +256,26 @@ TextureImporter:
         y: 139
         width: 2
         height: 2
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: medal_tag
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 114
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sock_medal
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 85
+        width: 27
+        height: 27
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
