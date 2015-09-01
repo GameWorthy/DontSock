@@ -112,10 +112,22 @@ public class Game : MonoBehaviour {
 		}
 
 		//give medals
-		if (currentLevel >= 45) MedalSystem.TotalPlatinum++;
-		else if (currentLevel >= 30) MedalSystem.TotalGold++;
-		else if (currentLevel >= 15) MedalSystem.TotalSilver++;
-		else if (currentLevel >= 6) MedalSystem.TotalBronze++;
+		if (currentLevel >= 45) {
+			MedalSystem.TotalPlatinum++;
+			menu.SetMedalColor (new Color(203f/255f,251f/255f,1,1));
+		} else if (currentLevel >= 30) {
+			MedalSystem.TotalGold++;
+			menu.SetMedalColor (new Color(1,237f/255f,0,1));
+		} else if (currentLevel >= 18) {
+			MedalSystem.TotalSilver++;
+			menu.SetMedalColor (new Color(203f/255f,203f/255f,203f/255f,1));
+		} else if (currentLevel >= 6) {
+			MedalSystem.TotalBronze++;
+			menu.SetMedalColor (new Color(218f/255f,103f/255f,0f,1));
+		} else {
+			menu.SetMedalColor(new Color(0f,0f,0f,0f));
+		}
+
 		menu.UpdateMedalsText ();
 
 		menu.SetHighScore (highestScore);

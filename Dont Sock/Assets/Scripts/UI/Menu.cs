@@ -16,6 +16,7 @@ public class Menu : MonoBehaviour {
 	[SerializeField] private AudioClip buttonClickClip = null;
 	[SerializeField] private Text soundSettingsText = null;
 	[SerializeField] private Text[] medalsText = null;
+	[SerializeField] private Image medal = null;
 
 	private bool soundIsOn;
 
@@ -68,6 +69,11 @@ public class Menu : MonoBehaviour {
 			soundSettingsText.text = "SOUND: OFF";
 			AudioListener.volume = 0;
 		}
+	}
+
+	public void SetMedalColor(Color _color) {
+		Debug.Log (_color);
+		medal.color = _color;
 	}
 
 	public void SettingsSupport() {
