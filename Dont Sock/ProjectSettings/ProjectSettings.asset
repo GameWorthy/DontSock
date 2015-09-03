@@ -10,7 +10,7 @@ PlayerSettings:
   targetResolution: 0
   accelerometerFrequency: 60
   companyName: GameWorthy
-  productName: Dont Sock
+  productName: Don't Sock
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -89,7 +89,7 @@ PlayerSettings:
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
-  APKExpansionFiles: 0
+  APKExpansionFiles: 1
   preloadShaders: 0
   StripUnusedMeshComponents: 0
   iPhoneSdkVersion: 988
