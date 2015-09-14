@@ -72,7 +72,6 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void SetMedalColor(Color _color) {
-		Debug.Log (_color);
 		medal.color = _color;
 	}
 
