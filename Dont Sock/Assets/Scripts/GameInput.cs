@@ -10,6 +10,10 @@ public class GameInput : MonoBehaviour {
 
 	void Update () {
 
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			Application.Quit();
+		}
+
 		if (Input.touchCount > 0) {
 
 			for (int i = 0; i < Input.touchCount; i++) {
