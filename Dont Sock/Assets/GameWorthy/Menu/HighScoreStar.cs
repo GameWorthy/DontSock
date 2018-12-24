@@ -7,7 +7,7 @@ public class HighScoreStar : MonoBehaviour {
 
 	private bool active = true;
 	private float timer = 0;
-	[SerializeField] private Image image;
+	[SerializeField] private Image image = null;
 
 	void Update () {
 		if (active) {

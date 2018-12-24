@@ -8,9 +8,9 @@ public class Menu : MonoBehaviour {
 
 	[SerializeField] private Animator menuAnimator = null;
 	[SerializeField] private List<RectTransform> menusToCenter = null;
-	[SerializeField] private Text highScore;	
-	[SerializeField] private Text currentScore;
-	[SerializeField] private HighScoreStar highScoreStar;
+	[SerializeField] private Text highScore = null;	
+	[SerializeField] private Text currentScore = null;
+	[SerializeField] private HighScoreStar highScoreStar = null;
 	[SerializeField] private AudioSource audioSource = null;
 	[SerializeField] private AudioClip highScoreClip = null;
 	[SerializeField] private AudioClip buttonClickClip = null;

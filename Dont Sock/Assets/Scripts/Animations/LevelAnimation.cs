@@ -3,8 +3,8 @@ using System.Collections;
 
 public class LevelAnimation : MonoBehaviour {
 
-	[SerializeField] private TextMesh text;
-	[SerializeField] private Animator animator;
+	[SerializeField] private TextMesh text = null;
+	[SerializeField] private Animator animator = null;
 
 	void Start() {
 		Stop ();

@@ -6,7 +6,7 @@ public class SockReader : MonoBehaviour {
 	[SerializeField] private SpriteRenderer sockToFind = null;
 	[SerializeField] private Transform secondSock = null;
 	[SerializeField] private Animator anim = null;
-	[SerializeField] private AudioClip correctClip;
+	[SerializeField] private AudioClip correctClip = null;
 	[SerializeField] private AudioClip incorrectClip = null;
 	private AudioSource audioSource = null;
 

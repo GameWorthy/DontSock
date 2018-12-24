@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{BA29E93D-74A8-C769-4FC1-D47E90E49296}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Ads.cs">
+    <Files>
+      <File FileName="Assets/GameWorthy/Menu/Menu.cs" Line="21" Column="25" />
+      <File FileName="Assets/Scripts/GameInput.cs" Line="15" Column="3" />
+      <File FileName="Assets/GameWorthy/SplashScreen/GameWorthySplashScreen.cs" Line="17" Column="45" />
+      <File FileName="Assets/Scripts/SockReader.cs" Line="9" Column="55" />
+      <File FileName="Assets/Scripts/Animations/LevelAnimation.cs" Line="7" Column="51" />
+      <File FileName="Assets/GameWorthy/Menu/HighScoreStar.cs" Line="9" Column="26" />
+      <File FileName="Assets/Scripts/Ads.cs" Line="16" Column="50" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

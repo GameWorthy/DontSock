@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameWorthySplashScreen : MonoBehaviour {
 
@@ -12,7 +13,8 @@ public class GameWorthySplashScreen : MonoBehaviour {
 	}
 
 	public void LoadNextScene() {
-		Application.LoadLevel (sceneToLoad);
+
+        SceneManager.LoadScene(sceneToLoad);
 		bg.gameObject.SetActive (false);
 	}
 }
